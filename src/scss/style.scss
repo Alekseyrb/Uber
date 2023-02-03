@@ -1,5 +1,28 @@
 $white_color: #ffffff;
 $main_color: #1EACC7;
+$second_color: #ff5656;
+
+@mixin title_text {
+    text-align: center;
+	font-weight: 700;
+	font-size: 38px;
+	margin-top: 32px;
+	text-transform: uppercase;
+}
+
+@mixin subtitle_text{
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+}
+
+@mixin btn_hover {
+	&:hover {
+		background-image: none;
+		background-color: $main_color;
+	}
+
+}
 
 * {
 	font-family: 'Roboto', sans-serif;
@@ -21,13 +44,13 @@ nav {
 	padding: 13px 70px;
 	margin: 0;
 	list-style-type: none;
-	.menu_link {
+	&_link {
 		color: $white_color;
 		font-size: 15px;
 		font-weight: 300px;
 		text-decoration: none;
 	}
-	.menu_item {
+	&_item {
 		border-right: 2px dotted black;
 		padding-right: 45px;
 	}
@@ -38,26 +61,26 @@ nav {
 	width: 100%;
 	height: 84px;
 	background-color: rgba(0, 0, 0, .6);
-	.subheader_logo {
+	&_logo {
 		display: block;
 		max-width: 100%;
 		margin-top: 16px;
 	}
-	.subheader_official {
+	&_official {
 		margin-top: 6px;
 		opacity: 0.5;
 		color: $white_color;
 		font-size: 13px;
 		font-weight: 400;
 	}
-	.subheader_call {
+	&_call {
 		margin-top: 19px;
 		color: $white_color;
 		font-size: 12px;
 		font-weight: 300;
 		text-align: right;
 	}
-	.subheader_phone {
+	&_phone {
 		display: block;
 		margin-top: 8px;
 		color: $white_color;
@@ -68,7 +91,7 @@ nav {
 		line-height: 12px;
 		text-decoration: none;
 	}
-	.subheader_btn {
+	&_btn {
 		margin-top: 19px;
 		width: 172px;
 		height: 46px;
@@ -80,13 +103,14 @@ nav {
 		font-size: 14px;
 		font-weight: 400;
 		text-transform: uppercase;
+		@include btn_hover;
 	}
 }
 .promo {
 	min-height: 800px;
 	background: url('../imgs/uber_bg.jpg') center center/cover no-repeat;
 	padding: 150px 0 135px 0;
-	.promo_header {
+	&_header {
 		color: $white_color;
 		font-size: 60px;
 		font-weight: 700;
@@ -95,7 +119,7 @@ nav {
 		margin: 0;
 		text-align: center;
 	}
-	.promo_subheader {
+	&_subheader {
 		color: $white_color;
 		font-size: 36px;
 		font-weight: 700;
@@ -105,7 +129,7 @@ nav {
 		margin-top: 22px;
 		text-align: center;
 	}
-	.promo_descr {
+	&_descr {
 		color: $white_color;
 		font-size: 18px;
 		font-weight: 400;
@@ -113,7 +137,7 @@ nav {
 		text-align: center;
 		margin-top: 23px;
 	}
-	.promo_btn {
+	&_btn {
 		display: block;
 		margin: 118px auto 0 auto;
 		width: 259px;
@@ -126,11 +150,12 @@ nav {
 		font-size: 18px;
 		font-weight: 400;
 		text-transform: uppercase;
+		@include btn_hover;
 	}
 }
 .benefits {
 	padding: 71px 0 65px 0;
-	.benefits_block {
+	&_block {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -182,23 +207,9 @@ nav {
 	background-color: #000000;
 }
 
-@mixin title_text {
-    text-align: center;
-	font-weight: 700;
-	font-size: 38px;
-	margin-top: 32px;
-	text-transform: uppercase;
-}
-
 .title {
 	@include title_text;
 	color: #222222;
-}
-
-@mixin subtitle_text{
-    font-size: 17px;
-    font-weight: 400;
-    text-align: center;
 }
 
 .subtitle {
@@ -244,6 +255,30 @@ nav {
             margin: 0 auto;
             border-radius: 100%;
             cursor: pointer;
+			&::before {
+				content: '';
+				display: block;
+				width: 14px;
+				height: 2px;
+				background-color: $main_color;
+				transition: 0.3s all;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				display: block;
+				height: 14px;
+				width: 2px;
+				background-color: $main_color;
+				transition: 0.3s all;
+			}
+			&:hover {
+				&::before, &::after {
+					background-color: $second_color;
+				}
+			}
         }
     }
     &_item_bg_1 {
