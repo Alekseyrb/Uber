@@ -23,6 +23,7 @@ nav {
     color: #ffffff;
     font-size: 15px;
     font-weight: 300px;
+    text-decoration: none;
 }
 
 .menu .menu_item {
@@ -70,6 +71,7 @@ nav {
     text-transform: uppercase;
     text-align: right;
     line-height: 12px;
+    text-decoration: none;
 }
 
 .subheader .subheader_btn {
@@ -143,7 +145,7 @@ nav {
     padding: 71px 0 65px 0;
 }
 
-.benefits .benefits_header {
+.label {
     margin: 0 auto;
     margin-top: 19px;
     text-align: center;
@@ -157,7 +159,7 @@ nav {
     height: 27px;
 }
 
-.benefits .benefits_subheader {
+.title {
     text-align: center;
     font-weight: 700;
     font-size: 38px;
